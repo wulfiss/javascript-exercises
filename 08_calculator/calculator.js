@@ -36,8 +36,14 @@ const power = function(numBase, numExp) {
   
 };
 
-const factorial = function() {
-	
+const factorial = function(numb){
+  let fact = 1;
+  if (numb > 0){
+    for(numb; numb > 0; numb--){
+      fact *= numb;
+    }
+  }
+  return fact;
 };
 
 // Do not edit below this line
