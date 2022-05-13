@@ -1,27 +1,37 @@
 const findTheOldest = function(people) {
-    if()
+    
+    const getAge = (death, birth) => {
+        if(!death){death = new Date().getFullYear()};
+        return death - birth;
+    }
+
+   
+    let findOld = people.reduce((oldestOne, currentValue) => {
+        let currentAge = getAge(currentValue.yearOfDeath, currentValue.yearOfBirth);
+        let oldestAge = getAge(oldestOne.yearOfDeath, oldestOne.yearOfBirth);
+        return oldestAge > currentAge ? oldestOne : currentValue;
+        });
+    
+
+    return findOld;
+};
+    /*
     let findOld = people.sort((a, b) => {
         let aYearOfBi = a.yearOfBirth;
         let aYearOfDe = a.yearOfDeath;
         let bYearOfBi = b.yearOfBirth;
         let bYearOfDe = b.yearOfDeath;
   
-        if(typeof(aYearOfDe) != 'number'){aYearOfDe = new Date().getFullYear();};
-        if(typeof(bYearOfDe) != 'number'){bYearOfDe = new Date().getFullYear();};
+        if(aYearOfDe == null){aYearOfDe = new Date().getFullYear();};
+        if(bYearOfDe == null){bYearOfDe = new Date().getFullYear();};
   
         const numberOne = aYearOfDe - aYearOfBi;
         const numberTwo = bYearOfDe - bYearOfBi;
         return numberTwo - numberOne; 
 
-    });return findOld[0];
-};
+    }); return findOld[0];
+    */
+
 
 // Do not edit below this line
 module.exports = findTheOldest;
-
-
-
-const nineTeen = people.some((date) => {
-    CURRENT_YEAR = new Date().getFullYear();
-    return (CURRENT_YEAR - date.year) >= 19; 
-  })
